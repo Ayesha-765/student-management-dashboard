@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSprint | Student Management Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h2>Scholarly</h2>
+            </div>
+            <nav class="sidebar-menu">
+                <a href="#" class="active"><i class="fa-solid fa-chart-pie"></i> Dashboard</a>
+                <a href="#"><i class="fa-solid fa-user-graduate"></i> Students</a>
+                <a href="#"><i class="fa-solid fa-book"></i> Courses</a>
+                <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+            </nav>
+        </aside>
+
+        <main class="main-content ">
+            <header class="main-header">
+                <div class="header-title">
+                    <h1>Overview</h1>
+                    <p>Welcome back, Administrator</p>
+                </div>
+                <div class="live-widgets">
+                    <div class="widget-box clock-box">
+                        <i class="fa-regular fa-clock"></i>
+                        <span id="digital-clock">00:00:00 PM</span>
+                    </div>
+                    <div class="widget-box timer-box">
+                        <i class="fa-solid fa-hourglass-half"></i>
+                        <span id="study-timer">00:00</span>
+                        <button id="toggle-timer-btn" title="Start/Pause Timer"><i class="fa-solid fa-play"></i></button>
+                    </div>
+                </div>
+            </header>
+
+            <section class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon icon-blue"><i class="fa-solid fa-users"></i></div>
+                    <div class="stat-info">
+                        <h3>Total Students</h3>
+                        <p id="total-students-count">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon icon-green"><i class="fa-solid fa-book-open"></i></div>
+                    <div class="stat-info">
+                        <h3>Active Courses</h3>
+                        <p id="active-courses-count">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon icon-orange"><i class="fa-solid fa-user-check"></i></div>
+                    <div class="stat-info">
+                        <h3>Average Age</h3>
+                        <p id="average-age">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <div class="workspace-grid">
+                <section class="form-container">
+                    <h2><i class="fa-solid fa-user-plus"></i> Register Student</h2>
+                    <form id="student-form">
+                        <div class="input-group">
+                            <label for="student-name">Full Name</label>
+                            <input type="text" id="student-name" placeholder="Ayesha Saleem" required>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="student-age">Age</label>
+                                <input type="number" id="student-age" placeholder="20" min="16" max="40" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="student-course">Course</label>
+                                <select id="student-course" required>
+                                    <option value="" disabled selected>Select Course</option>
+                                    <option value="Computer Science">Computer Science</option>
+                                    <option value="Data Science">Data Science</option>
+                                    <option value="Cyber Security">Cyber Security</option>
+                                    <option value="UI/UX Design">UI/UX Design</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button type="submit" class="submit-btn">Add Student</button>
+                    </form>
+                </section>
+
+                <section class="roster-container">
+                    <div class="roster-header">
+                        <h2><i class="fa-solid fa-list"></i> Student Roster</h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Age</th>
+                                    <th>Course</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="student-table-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
